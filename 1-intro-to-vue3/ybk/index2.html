@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="./styles.css"> -->
+    <title>云班课-我的班课</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        #root {
+            display: flex;
+            flex-direction: column;
+            font-size: 14px;
+        }
+
+        header,
+        footer {
+            flex: 0 0 5vh;
+            background-color: #1d99c2;
+            color: #fff;
+        }
+
+
+        main {
+            flex: 1 1 auto;
+            width: 70vw;
+            margin: 0 auto;
+            display: flex;
+        }
+
+        .left,
+        .right {
+            height: 90vh;
+            background-color: darkcyan;
+            flex: 0 0 5vw;
+        }
+
+        .center {
+            flex: 1 1 auto;
+            background-color: #bdebfa;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .col-3 {
+            flex: 0 0 25%;
+        }
+
+
+        .course-box {
+            height: 320px;
+            background-color: #bdebfa;
+            padding: 5px;
+            cursor: pointer;
+        }
+
+        .course-box img {
+            width: 100%;
+            height: 60%;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+
+        .course-box .course-info {
+            padding: 10px;
+            height: 40%;
+            background-color: #fff;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
+
+        .course-class {
+            font-size: 16px;
+            color: #595252;
+        }
+
+        .meta {
+            font-size: 13px;
+            color: #bfb4b4;
+            padding-top: 10px;
+        }
+
+        .meta span {
+            color: #3cb7e0;
+            padding-left: 10px;
+        }
+
+        .fl {
+            float: left;
+        }
+
+        .fr {
+            float: right;
+        }
+
+        .touxiang {
+            width: 60px !important;
+            height: 60px !important;
+            margin: 5px 5px 5px 0 !important;
+            border-radius: 50px !important;
+            position: relative;
+            left: 40%;
+            top: 10%;
+            z-index: 1;
+        }
+
+        .name {
+            float: right;
+            position: relative;
+            right: 95px;
+        }
+
+        .Info {
+            position: relative;
+            /* bottom:5%; */
+        }
+
+        .csCover {
+            position: relative;
+        }
+
+        .cc {
+            position: absolute;
+            bottom: 5%;
+            left: 10%;
+        }
+
+        .cc a {
+            padding: 5px 20px;
+            border-radius: 20px;
+            border: 1px solid #fff;
+            color: #fff;
+            margin: 0 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root">
+
+        <header>
+        </header>
+
+        <main>
+            <div class="left flex"></div>
+            <div class="center">
+                <div class="row">
+                    <div class="col-3 course-box" v-for="(course,index) in courses" :key="course.id">
+                        <img class="touxiang" :src="course.courseTeacher.avatar">
+                        <div class="csCover" @mouseover="change(index,course.flag)"
+                            @mouseout="change(index,course.flag)">
+                            <img :src="course.courseCover" alt="">
+                            <div class="cc" v-show="course.flag&&!course.finished">
+                                <a>发起签到</a><a>课堂表现</a>
+                            </div>
+                        </div>
+                        <div class="course-info">
+                            <!-- <p class="name">{{course.courseTeacher.name}}</p> -->
+                            <div class="Info">
+                                <p class="course-class">{{course.courseClass}}</p>
+                                <p class="meta">班课号:<span>{{course.courseNo}}</span></p>
+                                <div>
+                                    <p class="meta fl">{{course.semester}}</p>
+                                    <p class="meta fr"><span>进入></span></p>
+                                    <p class="meta fr"><span @click="deleteList(index)">删除</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right"></div>
+        </main>
+
+        <footer>
+        </footer>
+
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./main1.js"></script>
+    <script>
+        const mountedApp = app.mount('#root')
+    </script>
+</body>
+
+</html>

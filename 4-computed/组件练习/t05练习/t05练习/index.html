@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1-intro-to-vue3</title>
+    <link rel="stylesheet" href="./assets/styles.css">
+</head>
+
+<body>
+
+<div id="root">
+    <div class="container f-center" style="height: 100vh">
+        <div >
+            <h3>simple页面</h3>
+            <simple :values="simples" @notice-show="handleshow"></simple>
+            <h3>detail页面</h3>
+            <div class="border tx-center" style="width: 400px">
+                <div class="d-flex border ">
+                    <div class="flex-1 border">
+                        商品名
+                    </div>
+                    <div class="flex-1 border">
+                        价格
+                    </div>
+                    <div class="flex-1 border">
+                        地点
+                    </div>
+                    <div class="flex-1 border">
+                        颜色
+                    </div>
+                </div>
+            </div>
+            <div v-for="(value,index) in details" :key="value.name">
+                <detail :value="value"></detail>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<script src="https://cdn.staticfile.org/vue/3.2.36/vue.global.min.js"></script>
+<!--<script src="assets/vue.global.js"></script>-->
+<script src="main.js"></script>
+<script src="components/detail.js"></script>
+<script src="components/simple.js"></script>
+
+<!-- Mount App -->
+<script>
+    const mountedApp = app.mount('#root')
+
+</script>
+
+</body>
+
+</html>

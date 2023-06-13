@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>计算器</title>
+</head>
+
+<body>
+    <h4>options计算器</h4>
+    <div id="app" class="ma">
+        <div class="number">
+            <p class="font" :style="changeColor(number)">{{number}}</p>
+        </div>
+        <div class="count">
+            <button class="btn" @click="addCount">加</button>
+            <button class="btn" @click="resetCount">重置</button>
+            <button class="btn" @click="removeCount">减</button>
+        </div>
+    </div>
+
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./app.js"></script>
+
+    <script>
+        const mountapp = app.mount('#app')
+    </script>
+
+</body>
+
+</html>

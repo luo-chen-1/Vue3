@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        :root {
+            --grey: #5b5757;
+            --blue: #54b8d9;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--grey);
+        }
+
+
+        .main {
+            display: flex;
+            height: 50%;
+            margin: 0 auto;
+        }
+
+
+        .optionTab ul {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+
+        .optionTab li {
+            padding: 10px 20px;
+        }
+
+        .optionTab a {
+            padding-bottom: 8px;
+        }
+
+        .optionTab span {
+            font-size: 13px;
+        }
+
+        .currentPage {
+            color: #54b8d9;
+            font-weight: bold ;
+            border-bottom: 2px solid var(--blue);
+        }
+        .page{
+            text-transform: uppercase;
+            background: transparent;
+            color: var(--ms-black);
+            padding: 0.375rem 0.75rem;
+            letter-spacing: var(--spacing);
+            display: inline-block;
+            transition: var(--transition);
+            font-size: 0.875rem;
+            border: 2px solid var(--ms-black);
+            cursor: pointer;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+            border-radius: var(--radius);
+            margin: 0.5rem;
+        }
+
+        .content {
+            width: 50rem;
+            height: 30rem;
+            border: solid #54b8d9 1px;
+            padding: 3%;
+        }
+
+        .image{
+            width: 50rem;
+            height: 30rem;
+        }
+
+    </style>
+    <title>垂直选项卡</title>
+</head>
+
+<body>
+    <div id="ex" class="mainbox">
+        <div class="main">
+            <h3>垂直选项卡</h3>
+            <div class="optionTab">
+                <ul>
+                    <li v-for="(tab,index) in tabs" :key="{ index }" @click="changeTab(index)">
+                        <button :class="currentIdx === index ? 'currentPage' : '' " class="page">
+                            {{tab.name}}
+                        </button>
+                    </li>
+                </ul>
+            </div>
+
+            <div v-for="(content,index) in contents">
+                <div v-if="currentIdx === index" class="content">
+                    <img class="image" :src="content.image" alt="">
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./main.js"></script>
+</body>
+
+</html>

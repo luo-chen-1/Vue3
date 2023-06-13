@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="root">
+        <h1>{{product}}</h1>
+        <product-list v-for="item in products"></product-list>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./mian.js"></script>
+    <script src="./components/productList.js"></script>
+    <script> 
+        const a = app.mount('#root')
+    </script>
+</body>
+</html>

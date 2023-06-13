@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+    <link rel="stylesheet" href="./t04袜子组件/t04袜子组件/assets/styles.css">
+</head>
+
+<body>
+    <div id="root">
+        <h1>这是使用了组件的页面</h1>
+        <product-display :free="true"></product-display>
+        <product-display :free="false"></product-display>
+    </div>
+
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./t04袜子组件/t04袜子组件/main.js"></script>
+    <!-- 引入组件 -->
+    <script src="./components/productDisplay.js"></script>
+    <script>
+
+        const index = app.mount('#root')
+
+    </script>
+</body>
+
+</html>

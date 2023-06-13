@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        .center {
+            text-align: center;
+            margin-top: 18.75rem;
+        }
+    </style>
+</head>
+<!-- <link href="//unpkg.com/layui@2.7.6/dist/css/layui.css" rel="stylesheet"> -->
+
+<body>
+    <h4>原生计算器</h4>
+    <div id="app" class="ma">
+        <div class="number">
+            <p class="font" id="s1">0</p>
+        </div>
+        <div class="count">
+            <button id="b1" class="btn layui-btn-warm" onclick="jian()">-</button>
+            <button id="b3" class="btn layui-btn-primary" onclick="reset()">重置</button>
+            <button id="b2" class="btn" onclick="add()">+</button>
+        </div>
+        
+        
+    </div>
+</body>
+<script>
+    var a = document.getElementById('s1').innerHTML;
+    var na = Number(a)
+    function jian() {
+        var newcolor = 1;
+        document.getElementById('s1').innerHTML = --na;
+        if (na < 0) {
+            document.getElementById("s1").style.color = "#FF0000";
+        }
+        if (na >= 0 && na <= 10) {
+            document.getElementById("s1").style.color = "#000000";
+        }
+    }
+
+    function add() {
+        document.getElementById('s1').innerHTML = ++na;
+        if (na > 10) {
+            document.getElementById("s1").style.color = "#00FF00";
+        }
+        if (na >= 0 && na <= 10) {
+            document.getElementById("s1").style.color = "#000000";
+        }
+    }
+    function reset() {
+        na = 0;
+        document.getElementById('s1').innerHTML = na;
+        document.getElementById("s1").style.color = "#000000";
+    }
+</script>
+
+</html>

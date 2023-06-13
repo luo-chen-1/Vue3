@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        :root {
+            --grey: #5b5757;
+            --blue: #54b8d9;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--grey);
+        }
+
+        .main {
+            width: 50%;
+            margin: 0 auto;
+        }
+
+
+        .optionTab ul {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .optionTab li {
+            padding: 10px 20px;
+        }
+
+        .optionTab a {
+            padding-bottom: 8px;
+        }
+
+        .optionTab span {
+            font-size: 13px;
+        }
+
+        .currentPage {
+            color: var(--blue);
+            font-weight: bold;
+            border-bottom: 2px solid var(--blue);
+        }
+
+        .content{
+            border:solid #54b8d9 1px;
+            padding: 3%;
+        }
+
+    </style>
+    <title>选项卡</title>
+</head>
+
+<body>
+    <div id="ex">
+        <div class="main">
+            <h3>选项卡</h3>
+            <div class="optionTab">
+                <ul>
+                    <li v-for="(tab,index) in tabs" :key="{ index }" @click="changeTab(index)">
+                        <a href="#" :class="currentIdx === index ? 'currentPage' : '' ">
+                            {{tab.name}}
+                            <span v-if="tab.count>=0">({{tab.count}})</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div  v-for="(content,index) in contents"  >
+                <div v-if="currentIdx === index" class="content">
+                    <div class="massage" v-for="(list,idx) in content.lists">
+                        <p>{{list}}</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./main.js"></script>
+</body>
+
+</html>

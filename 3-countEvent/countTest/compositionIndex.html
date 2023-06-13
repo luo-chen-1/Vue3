@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>计数器</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <h4>composition计算器</h4>
+    <div id="app" class="ma">
+        
+        <div class="number">
+            <p class="font" id="value" :style="{ color: resColor}">{{count}}</p>
+        </div>
+        <div class="count">
+            <button class="btn decrease" @click="decrement">减</button>
+            <button class="btn reset" @click="reset">重置</button>
+            <button class="btn increase" @click="increment">加</button>
+        </div>
+
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./compositionApp.js"></script>
+</body>
+
+</html>
